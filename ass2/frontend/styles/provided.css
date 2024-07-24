@@ -1,0 +1,240 @@
+
+/* base styles, feel free to edit */
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #fafafa;
+    height: 100%;
+    font-family: -apple-system, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.banner {
+    text-align: center;
+}
+
+.hide {
+    display: none;
+}
+
+#landing_page{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#channels_block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.channel_heading_div {
+    display: flex;
+    padding: 5px;
+    padding-left: 20px;
+    padding-top: 20px;
+    justify-content: space-between;
+}
+
+.channel_heading {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: white;
+
+    transition: 0.2s linear;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.plus_button {
+    color: #8075FF;
+    font-size: 2em;
+    float: right;
+    margin-right: 15px;
+    text-align: center;
+    display: inline-flex;
+    vertical-align: top;
+    transition: 0.2s linear;
+}
+
+.plus_button:hover {
+    color: #DF2935;
+    cursor: pointer;
+}
+
+
+
+.channel_heading:hover {
+    color: #8075FF;
+    cursor: default;
+}
+
+#logged_in_screen {
+    display: none;
+    min-height: 100vh;
+    background-color: #FFEBF0;
+}
+
+#logout-button {
+    margin-left: 20px;
+    margin-bottom: 30px;
+}
+
+.sideblock {
+    flex: 1 1 600px;
+    max-width: 300px;
+    width: 300px;
+    padding: 1rem 1rem;
+    background-color: #212738;
+}
+
+.sideblock h3 {
+    color: #8075FF;
+    font-size: 0.75em;
+    text-transform: uppercase;
+    margin-bottom: 0.5em;
+    padding-left: 20px;
+    padding-bottom: 20px;
+}
+
+.sideblock .menu {
+    margin: 0 -1rem;
+}
+
+.sideblock .menu .menu_item {
+    display: block;
+    padding: 5px;
+    padding-left: 20px;
+    color: white;
+    /* text-decoration: none; */
+    transition: 0.2s linear;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.sideblock .menu .menu_item:hover {
+    color: #DF2935;
+    border-left: 5px solid #DF2935;
+    cursor: pointer;
+}
+
+.sideblock .menu .menu_item:hover #info_icon {
+    display:inline-block;
+    color: whitesmoke;
+    cursor: pointer;
+}
+
+#info_icon {
+    display: none;
+    transition: 0.2s linear;
+}
+
+.modal_bg {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0;
+    display: none; 
+    /* Needs ot be flex to display */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal_box {
+    width: 500px;
+    height: 300px;
+    background-color: #8075FF;
+    border-radius: 20px;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* align-items: center; */
+    position: relative;
+    text-align: center;
+}
+
+#channel_create_close {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+}
+
+#create_channel_title {
+    font-size: 30px;
+    color: #FFEBF0;
+    text-align: center;
+    padding:20px
+
+}
+
+#channel_display_box {
+    width: 100%;
+}
+
+#channel_display_top_bar {
+    width: 100%;
+    height: 90px;
+    background-color: #7F7CAF;
+}
+
+#server_name_input {
+    width: 220px;
+}
+
+#description_input {
+    width: 220px;
+}
+
+.modal_text_input {
+    margin: 10px auto;
+}
+
+#channel_create_submit {
+    margin: 15px auto;
+}
+
+#channel_name_heading {
+    display:inline-block;
+    margin-top: 10px;
+    margin-left: 40px;
+    color: white;
+    font-weight: bold;
+    font-family: Geneva, sans-serif;
+    font-size: 16pt;
+    transition: 0.2s linear;
+}
+
+#channel_name_heading:hover, #channel_description_heading:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#channel_description_heading {
+    /* display:block; */
+    margin-left: 40px;
+    width: 500px;
+    font-size: 10pt;
+    color: rgb(224, 224, 224);
+    font-family: Geneva, sans-serif;
+}
+
+#channel_publicity_heading {
+    margin-left: 40px;
+    font-size: 8pt;
+    font-family: Geneva, sans-serif;
+    color: rgb(224, 224, 224);
+    
+}
+
+#channel_creator_heading {
+    float: right;
+    margin-right: 30px;
+    color: white;
+    font-size: 10pt;
+}
+
+#channel_creation_time_heading {
+    /* float: right; */
+    /* display: inline; */
+    color: #FFEBF0;
+    font-size: 10pt;
+    margin-left: 40px;
+}

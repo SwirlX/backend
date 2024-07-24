@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Slackr</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- You can add your styles and scripts here -->
+  
+  <link rel="stylesheet" type="text/css" media="screen" href="styles/provided.css" />
+  <script type="module" src="src/helpers.js"></script>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+  <!-- This is an example app structure, you can modify this as much as you choose -->
+
+  <div id="landing_page">
+    
+   
+
+    <header id="header" class="banner">
+      <h1>Slackr</h1>
+    </header>
+
+    <div>
+      <button id="nav-login">Login</button>
+      <button id="nav-register">Register</button>
+    </div>
+
+    <section id="register">
+        Email: <input type="text" id="register-email"> <br>
+        Password: <input type="password" id="register-password"> <br>
+        Name: <input type="text" id="register-name"> <br>
+        <button id="register-button">Register</button>
+    </section>
+    
+    <section id="login" class="hide">
+        Email: <input type="text" id="login-email"> <br>    
+        Password: <input type="password" id="login-password"> <br>          
+        <button id="login-button">login</button>
+      </section>
+
+
+
+  </div>
+
+  <div id="logged_in_screen" class="hide">
+
+    <aside class="sideblock">
+
+      <nav class="menu">
+
+        <h3>Menu</h3>
+
+        <button id="logout-button" type="button" class="btn btn-warning">Logout</button>
+
+        <div class="menu_item">Test
+          
+          <svg id="info_icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+          </svg>
+
+        </div>
+
+        <div class="menu_item">Another Item</div>
+
+        <div class="channel_heading_div">
+          <div id="public_channel_heading" class="channel_heading">Public Channels </div>
+          <div id="create_public_channel_button" class="plus_button">&plus;</div>
+        </div>
+        <div id="public_channels">
+
+        </div>
+
+        <div class="channel_heading_div">
+          <div id="private_channel_heading" class="channel_heading">Private Channels </div>
+          <div id="create_private_channel_button" class="plus_button">&plus;</div>
+
+        </div>
+
+        <div id="private_channels">
+          
+        <div>
+      </nav>
+
+    </aside>
+
+    <div id="channel_display_box">
+      <div id="channel_display_top_bar">
+
+        <div id="channel_name_heading" data-bs-toggle="modal" data-bs-target="#rename_modal">Channel name
+          
+        </div>
+
+        <span id="channel_publicity_heading">Private</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(224, 224, 224)" class="bi bi-lock" viewBox="0 0 16 16">
+          <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/>
+        </svg>
+
+        <div id="channel_description_heading" data-bs-toggle="modal" data-bs-target="#desc_change_modal">Channel Description</div>
+
+        <div id="channel_creator_heading">Creator: OIASD</div>
+
+        <div id="channel_creation_time_heading">Creation time</div>
+      </div>
+      
+
+      <!-- Rename Modal -->
+      <div class="modal fade" id="rename_modal" tabindex="-1" role="dialog" aria-labelledby="rename_modal_label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="rename_modal_label">Rename Channel</h5>
+              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <input id="rename_channel_text_input" type="text" placeholder="New Channel Name">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" id="rename_channel_save_btn">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <!-- Change description Modal -->
+      <div class="modal fade" id="desc_change_modal" tabindex="-1" role="dialog" aria-labelledby="desc_change_modal_label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="desc_change_modal_label">Change Channel Description</h5>
+              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <input id="desc_change_text_input" type="text" placeholder="New Description">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" id="desc_change_save_btn">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div id="create_channel_popup_parent" class="modal_bg">
+      <div class="modal_box">
+        <form name="channel_form">
+          <button id="channel_create_close" type="button" class="btn-close" aria-label="Close"></button>
+          <div id="create_channel_title">
+            Create a New Channel 
+          </div>
+          <div>
+            <input type="text" id="server_name_input" class="modal_text_input form-control" aria-describedby="emailHelp" placeholder="Server Name">
+          </div>
+          <div>
+            <input type="text" id="description_input" class="modal_text_input form-control" aria-describedby="emailHelp" placeholder="Description (Optional)">
+          </div>
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary active">
+              <input type="radio" name="options" id="public_option" autocomplete="off" checked> Public
+            </label>
+            <label class="btn btn-secondary">
+              <input type="radio" name="options" id="private_option" autocomplete="off"> Private
+            </label>
+          </div>
+          <br>
+        </form>
+        <button id="channel_create_submit" type="submit" class="btn btn-primary">Create</button>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <footer>
+    <p>&copy; Slackr</p>
+  </footer>
+  <script type="module" src="src/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
